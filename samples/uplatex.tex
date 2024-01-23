@@ -1,0 +1,20 @@
+\documentclass[uplatex,dvipdfmx,a4paper]{jsarticle}
+\usepackage{bxpapersize}
+\usepackage[top=15truemm,bottom=15truemm,left=15truemm,right=15truemm]{geometry}
+\input{../tex-template/schooltest_style}
+\input{../tex-template/schooltest_style_ja}
+
+\begin{document}
+\textbf{(1)}
+\(S_n\)は図のように，
+\begin{align}
+  S_n = \frac{1}{2} (a_n-a_{n+1})a_n^2
+  =\frac{1}{2}\rbra*{\rbra*{\frac{1}{2}}^{n-1}-\rbra*{\frac{1}{2}}^{n}}\rbra*{\frac{1}{2}}^{2n-2}
+  =\frac{1}{4}\rbra*{\frac{1}{8}}^{n-1}
+\end{align}
+よって\(\sum_{n=1}^\infty S_n\)は初項\(\frac{1}{4}\)，公比\(\frac{1}{8}\)の無限等比級数であり，
+\(\abs*{\frac{1}{8}}<1\)より，
+\begin{align}
+  \sum_{n=1}^\infty S_n=\cfrac{\cfrac{1}{4}}{1-\cfrac{1}{8}}=\frac{2}{7}
+\end{align}
+\end{document}
