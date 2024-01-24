@@ -9,7 +9,7 @@ Dockerコンテナ内にそもそもSSHがインストールされていない�
 [Sharing Git credentials with your container](https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials)
 にしたがって，[dotfiles](https://github.com/mo-mo-666/dotfiles)を書いているが，
 もしうまくいかない場合は
-`~/.ssh/config`に以下を追記する(ファイルがない場合は作成するb)．
+`~/.ssh/config`に以下を追記する(ファイルがない場合は作成する)．
 
 ```
 Host github.com
