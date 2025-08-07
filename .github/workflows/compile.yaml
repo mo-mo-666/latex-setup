@@ -1,0 +1,46 @@
+name: Compile and Upload
+
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: 'File path'
+        required: true
+        type: string
+
+env:
+  IMAGE_NAME: ghcr.io/mo-mo-666/latex-ubuntu:2022
+  FILE_PATH: ${{ github.event.inputs.path }}
+
+jobs:
+  compile:
+    name: Compile and Upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Pull Docker image
+        run: docker pull $IMAGE_NAME
+
+      - name: Compile LaTeX document
+        run: |
+          mkdir -p ${{ github.workspace }}/gh-output
+          docker run --rm \
+            -v ${{ github.workspace }}:/workdir \
+            -w /workdir/$(dirname $FILE_PATH) \
+            $IMAGE_NAME \
+            sh -c "latexmk -f -r /workdir/.latexmkrc -output-directory=/workdir/gh-output $(basename $FILE_PATH)"
+        continue-on-error: true # skip error of Failure to make 'samples.dvi'
+
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v4
+        with:
+          name: compiled
+          path: |
+            ${{ github.workspace }}/gh-output
