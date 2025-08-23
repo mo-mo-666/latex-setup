@@ -1,4 +1,4 @@
-FROM ghcr.io/mo-mo-666/latex-ubuntu:2022
+FROM ghcr.io/mo-mo-666/latex-ubuntu:latest
 
 ARG USERNAME="dev"
 ARG USER_UID=1000

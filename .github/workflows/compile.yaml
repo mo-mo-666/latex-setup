@@ -9,7 +9,7 @@ on:
         type: string
 
 env:
-  IMAGE_NAME: ghcr.io/mo-mo-666/latex-ubuntu:2022
+  IMAGE_NAME: ghcr.io/mo-mo-666/latex-ubuntu:latest
   FILE_PATH: ${{ github.event.inputs.path }}
 
 jobs:
