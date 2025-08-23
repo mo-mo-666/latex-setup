@@ -2,12 +2,12 @@
     "name": "TeX Live",
     // "image": "ghcr.io/mo-mo-666/latex-ubuntu:latest",
     "dockerFile": "./Dockerfile",
+    "remoteUser": "ubuntu",
     "workspaceFolder": "/workdir",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind,consistency=cached",
     "customizations": {
         "vscode": {
-            "settings": {
-            },
+            "settings": {},
             "extensions": [
                 "eamodio.gitlens",
                 "MS-CEINTL.vscode-language-pack-ja",
