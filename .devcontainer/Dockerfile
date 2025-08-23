@@ -9,12 +9,11 @@ ENV USERNAME=${USERNAME} \
     USER_UID=${USER_UID} \
     USER_GID=${USER_GID}
 
-# ミラー変更（古い http → 新しい https）: 通常は /etc/apt/sources.list を編集
-RUN sed -i.bak -r 's@http://(jp\.)?archive\.ubuntu\.com/ubuntu/?@https://ftp.udx.icscoe.jp/Linux/ubuntu/@g' /etc/apt/sources.list
-
+# ミラー変更
+RUN sed -i -E 's|^URIs: .*|URIs: https://ftp.jaist.ac.jp/pub/Linux/ubuntu/|' /etc/apt/sources.list.d/ubuntu.sources
 # パッケージ更新と ssh のインストール
 RUN apt-get update \
-    && apt-get install -y openssh-server sudo \
+    && apt-get install -y --no-install-recommends openssh-server sudo \
     && rm -rf /var/lib/apt/lists/*
 
 # sshd_config の AllowAgentForwarding を有効化
