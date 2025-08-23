@@ -1,3 +1,6 @@
+samples/pdflatex.pdf
+samples/uplatex.pdf
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
