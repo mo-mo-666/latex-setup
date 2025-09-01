@@ -4,12 +4,6 @@
     "remoteUser": "ubuntu",
     "workspaceFolder": "/workdir",
     "workspaceMount": "source=${localWorkspaceFolder},target=/workdir,type=bind,consistency=cached",
-    "mounts": [
-        "source=${env:SSH_AUTH_SOCK},target=/ssh-agent,type=bind,consistency=cached"
-    ],
-    "remoteEnv": {
-        "SSH_AUTH_SOCK": "/ssh-agent"
-    },
     "customizations": {
         "vscode": {
             "settings": {},
