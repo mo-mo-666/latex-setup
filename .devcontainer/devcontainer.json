@@ -11,7 +11,9 @@
                 "eamodio.gitlens",
                 "MS-CEINTL.vscode-language-pack-ja",
                 "James-Yu.latex-workshop",
-                "christian-kohler.path-intellisense"
+                "christian-kohler.path-intellisense",
+                "GitHub.copilot",
+                "GitHub.copilot-chat"
             ]
         }
     }
